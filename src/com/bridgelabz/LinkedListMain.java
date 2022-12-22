@@ -14,7 +14,7 @@ public class LinkedListMain {
         //linkedList1.append(56);
         //linkedList2.display();
 
-        linkedList1.pop();
+        linkedList1.poplast();
         linkedList1.display();
 
     }

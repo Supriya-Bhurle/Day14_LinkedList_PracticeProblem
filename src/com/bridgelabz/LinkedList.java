@@ -52,19 +52,25 @@ public class LinkedList <T> {
         }
     }
 
-    public void pop() {
+    public void poplast() {
         //t first checks whether the head is null (empty list).
         if (head == null) {
             System.out.println("List is empty");
             /*If the list is not empty, it will check whether the list has only one node.
             If the list has only one node, it will set both head and tail to null.
-            If the list has more than one node then, the head will point to the next node in the list and delete the old head node.*/
-
+            If the list has more than one node then, traverse through the list till node current points to second last node in the list.
+            Node current will become the new tail of the list.
+            Node next to current will be made null to delete the last node.*/
         } else {
-
-            if (head != tail) {
-                head = head.next;
-            } else {
+            if(head != tail ) {
+                Node current = head;
+                while(current.next != tail) {
+                    current = current.next;
+                }
+                tail = current;
+                tail.next = null;
+            }
+            else {
                 head = tail = null;
 
             }
