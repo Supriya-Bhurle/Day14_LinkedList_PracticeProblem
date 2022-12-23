@@ -87,30 +87,39 @@ public class LinkedList <T> {
     }
     public Node<T> searchNode(T key) {
         Node current = head;
+        Node<T> tempNode = null;
         int i = 1;
         boolean flag = false;
         //Checks whether list is empty
-        if(head == null) {
+        if (head == null) {
             System.out.println("List is empty");
-        }
-        else {
-            while(current != null) {
+        } else {
+            while (current != null) {
                 //Compares node to be found with each node present in the list
-                if(current.key == key) {
+                if (current.key == key) {
                     flag = true;
+                    tempNode = current;
                     break;
                 }
                 i++;
                 current = current.next;
             }
         }
-        if(flag)
-            System.out.println("Element is present in the list at the position : " + i);
+        if (flag)
+            return tempNode;
         else
             System.out.println("Element is not present in the list");
         return null;
     }
-}
+    public void searchAndInsert(T searchKey,T insertKey) {
+        Node<T> searchNode = searchNode(searchKey);//30
+        Node<T> temp=searchNode.next;
+        Node<T> newNode = new Node<>(insertKey);//40
+        if (searchNode!=null){
+            searchNode.next=newNode;//30=>40
+            newNode.next=temp;//40=?70
+    }
+}}
 
 
 
