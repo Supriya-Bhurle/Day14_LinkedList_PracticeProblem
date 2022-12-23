@@ -52,16 +52,26 @@ public class LinkedList <T> {
         }
     }
 
-    public void poplast() {
-        //t first checks whether the head is null (empty list).
+    public void  pop() {
         if (head == null) {
             System.out.println("List is empty");
-            /*If the list is not empty, it will check whether the list has only one node.
-            If the list has only one node, it will set both head and tail to null.
-            If the list has more than one node then, traverse through the list till node current points to second last node in the list.
-            Node current will become the new tail of the list.
-            Node next to current will be made null to delete the last node.*/
+
         } else {
+
+            if (head != tail) {
+                head = head.next;
+            }
+            else {
+                head = tail = null;
+            }
+        }
+    }
+    public void  popLast(){
+        if(head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        else {
             if(head != tail ) {
                 Node current = head;
                 while(current.next != tail) {
@@ -72,9 +82,33 @@ public class LinkedList <T> {
             }
             else {
                 head = tail = null;
-
             }
         }
+    }
+    public Node<T> searchNode(T key) {
+        Node current = head;
+        int i = 1;
+        boolean flag = false;
+        //Checks whether list is empty
+        if(head == null) {
+            System.out.println("List is empty");
+        }
+        else {
+            while(current != null) {
+                //Compares node to be found with each node present in the list
+                if(current.key == key) {
+                    flag = true;
+                    break;
+                }
+                i++;
+                current = current.next;
+            }
+        }
+        if(flag)
+            System.out.println("Element is present in the list at the position : " + i);
+        else
+            System.out.println("Element is not present in the list");
+        return null;
     }
 }
 
