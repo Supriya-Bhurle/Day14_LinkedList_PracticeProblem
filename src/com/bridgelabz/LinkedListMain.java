@@ -14,7 +14,11 @@ public class LinkedListMain {
         //linkedList1.append(56);
         //linkedList2.display();
 
+        //linkedList1.searchNode(30);
+
         linkedList1.searchNode(30);
+        linkedList1.searchAndInsert(30,40);
+        linkedList1.display();
 
 
     }
